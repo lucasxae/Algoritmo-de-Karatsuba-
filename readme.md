@@ -8,26 +8,14 @@ O projeto implementa o algoritmo de Karatsuba para multiplicação eficiente de 
 
 #### Explicação do Algoritmo e da Lógica
 
-1. **Importação do Módulo `time`**:
-    ```python
-    import time
-    ```
-    O módulo [time](http://_vscodecontentref_/20) é importado para medir o tempo de execução do algoritmo.
-
-2. **Definição da Função [karatsuba_algorithm](http://_vscodecontentref_/21)**:
-    ```python
-    def karatsuba_algorithm(multiplicando, mutiplicador):
-    ```
-    Esta função implementa o algoritmo de Karatsuba.
-
-3. **Caso Base da Recursão**:
+1. **Caso Base da Recursão**:
     ```python
     if multiplicando < 10 or mutiplicador < 10:
         return multiplicando * mutiplicador
     ```
     Se qualquer um dos números for menor que 10, a multiplicação é feita diretamente.
 
-4. **Divisão dos Números**:
+2. **Divisão dos Números**:
     ```python
     n_casas = max(len(str(multiplicando)), len(str(mutiplicador)))
     m = n_casas // 2
@@ -36,7 +24,7 @@ O projeto implementa o algoritmo de Karatsuba para multiplicação eficiente de 
     ```
     Os números são divididos em duas partes: [a](http://_vscodecontentref_/22) e [b](http://_vscodecontentref_/23) para o primeiro número, [c](http://_vscodecontentref_/24) e [d](http://_vscodecontentref_/25) para o segundo número.
 
-5. **Recursão para Calcular os Produtos**:
+3. **Recursão para Calcular os Produtos**:
     ```python
     ac = karatsuba_algorithm(a, c)
     bd = karatsuba_algorithm(b, d)
@@ -44,19 +32,19 @@ O projeto implementa o algoritmo de Karatsuba para multiplicação eficiente de 
     ```
     São calculados os produtos [ac](http://_vscodecontentref_/26), [bd](http://_vscodecontentref_/27) e [ad_bc](http://_vscodecontentref_/28) usando chamadas recursivas.
 
-6. **Combinação dos Resultados**:
+4. **Combinação dos Resultados**:
     ```python
     return ac * 10 ** (2 * m) + ad_bc * 10 ** m + bd
     ```
     Os resultados são combinados para obter o produto final.
 
-7. **Função para Testar a Multiplicação**:
+5. **Função para Testar a Multiplicação**:
     ```python
     def testar_mutiplicacao_numeros():
     ```
     Esta função mede o tempo de execução do algoritmo de Karatsuba.
 
-8. **Definição dos Números e Execuções**:
+6. **Definição dos Números e Execuções**:
     ```python
     x = 123456789
     y = 987654321
@@ -65,7 +53,7 @@ O projeto implementa o algoritmo de Karatsuba para multiplicação eficiente de 
     ```
     São definidos os números a serem multiplicados e o número de execuções para medir o tempo médio.
 
-9. **Loop para Medir o Tempo de Execução**:
+7. **Loop para Medir o Tempo de Execução**:
     ```python
     for _ in range(num_executions):
         start = time.time()
@@ -75,7 +63,7 @@ O projeto implementa o algoritmo de Karatsuba para multiplicação eficiente de 
     ```
     O algoritmo é executado 1000 vezes e o tempo total é acumulado.
 
-10. **Cálculo e Impressão do Tempo Médio**:
+8. **Cálculo e Impressão do Tempo Médio**:
     ```python
     average_time = total_time / num_executions
     print("Resultado:", resultado)
@@ -83,27 +71,13 @@ O projeto implementa o algoritmo de Karatsuba para multiplicação eficiente de 
     ```
     O tempo médio de execução é calculado e impresso junto com o resultado da multiplicação.
 
-11. **Execução do Teste**:
-    ```python
-    if __name__ == "__main__":
-        testar_mutiplicacao_numeros()
-    ```
-    A função de teste é chamada se o script for executado diretamente.
-
 ### Análise da Complexidade Ciclomática
 
-A complexidade ciclomática é uma métrica que mede a quantidade de caminhos lineares independentes através de um programa. Para calcular a complexidade ciclomática, precisamos representar o fluxo de controle da função [karatsuba_algorithm](http://_vscodecontentref_/29) e estruturar o grafo de fluxo.
+A complexidade ciclomática é uma métrica que mede a quantidade de caminhos lineares independentes através de um programa. Para calcular a complexidade ciclomática, precisamos representar o fluxo de controle da função e estruturar o grafo de fluxo.
 
-#### Fluxo de Controle da Função [karatsuba_algorithm](http://_vscodecontentref_/30)
+### Fluxo de Controle da Função
 
-1. **Início da Função**
-2. **Verificação do Caso Base**: [if multiplicando < 10 or mutiplicador < 10](http://_vscodecontentref_/31)
-   - **Verdadeiro**: Retorna [multiplicando * mutiplicador](http://_vscodecontentref_/32)
-   - **Falso**: Continua para a divisão dos números
-3. **Divisão dos Números**: [a, b = divmod(multiplicando, 10 ** m)](http://_vscodecontentref_/33) e [c, d = divmod(mutiplicador, 10 ** m)](http://_vscodecontentref_/34)
-4. **Recursão para Calcular os Produtos**: [ac = karatsuba_algorithm(a, c)](http://_vscodecontentref_/35), [bd = karatsuba_algorithm(b, d)](http://_vscodecontentref_/36), [ad_bc = karatsuba_algorithm(a + b, c + d) - ac - bd](http://_vscodecontentref_/37)
-5. **Combinação dos Resultados**: [return ac * 10 ** (2 * m) + ad_bc * 10 ** m + bd](http://_vscodecontentref_/38)
-
+![](<Screenshot_20250224_163132_Samsung Notes.jpg>)
 #### Grafo de Fluxo
 
 - **Nós**:
@@ -111,9 +85,9 @@ A complexidade ciclomática é uma métrica que mede a quantidade de caminhos li
   2. Verificação do caso base
   3. Retorno do caso base
   4. Divisão dos números
-  5. Recursão para [ac](http://_vscodecontentref_/39)
-  6. Recursão para [bd](http://_vscodecontentref_/40)
-  7. Recursão para [ad_bc](http://_vscodecontentref_/41)
+  5. Recursão para ac
+  6. Recursão para bd
+  7. Recursão para ad_bc
   8. Combinação dos resultados
   9. Retorno do resultado final
 
@@ -121,10 +95,10 @@ A complexidade ciclomática é uma métrica que mede a quantidade de caminhos li
   1. Início -> Verificação do caso base
   2. Verificação do caso base -> Retorno do caso base (verdadeiro)
   3. Verificação do caso base -> Divisão dos números (falso)
-  4. Divisão dos números -> Recursão para [ac](http://_vscodecontentref_/42)
-  5. Recursão para [ac](http://_vscodecontentref_/43) -> Recursão para [bd](http://_vscodecontentref_/44)
-  6. Recursão para [bd](http://_vscodecontentref_/45) -> Recursão para [ad_bc](http://_vscodecontentref_/46)
-  7. Recursão para [ad_bc](http://_vscodecontentref_/47) -> Combinação dos resultados
+  4. Divisão dos números -> Recursão para ac
+  5. Recursão para ac -> Recursão para bd
+  6. Recursão para bd -> Recursão para ad_bc
+  7. Recursão para ad_bc -> Combinação dos resultados
   8. Combinação dos resultados -> Retorno do resultado final
 
 #### Cálculo da Complexidade Ciclomática
@@ -137,7 +111,7 @@ Usando a fórmula \( M = E - N + 2P \):
 
 \[ M = 8 - 9 + 2 \times 1 = 1 \]
 
-A complexidade ciclomática da função [karatsuba_algorithm](http://_vscodecontentref_/48) é 1.
+A complexidade ciclomática da função  é 1.
 
 ### Análise da Complexidade Assintótica
 
@@ -165,5 +139,3 @@ Para executar o projeto no seu ambiente local, siga os passos abaixo:
     ```sh
     python main.py
     ```
-
-Isso irá executar o algoritmo de Karatsuba e imprimir o resultado da multiplicação e o tempo médio de execução.
