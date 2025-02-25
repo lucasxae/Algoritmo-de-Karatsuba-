@@ -1,10 +1,10 @@
 # Algoritmo de Karatsuba
 
-O **Algoritmo de Karatsuba** é um método utilizado para multiplicar números grandes eficientemente. É mais rápido que o método usual de multiplicação longa, que necessita de \(n^{2}\) multiplicações de um dígito simples.
+O **Algoritmo de Karatsuba** é um método utilizado para multiplicar números grandes eficientemente. É mais rápido que o método usual de multiplicação longa, que necessita de n^2 multiplicações de um dígito simples.
 
 ### Descrição do Projeto
 
-O projeto implementa o algoritmo de Karatsuba para multiplicação eficiente de dois números inteiros grandes. O algoritmo de Karatsuba é um método recursivo que reduz a complexidade da multiplicação de \(O(n^2)\) para \(O(n^{\log_2 3})\), onde \(n\) é o número de dígitos dos números a serem multiplicados.
+O projeto implementa o algoritmo de Karatsuba para multiplicação eficiente de dois números inteiros grandes. O algoritmo de Karatsuba é um método recursivo que reduz a complexidade da multiplicação de O(n^2) para O(n^(log 3), onde n é o número de dígitos dos números a serem multiplicados.
 
 #### Explicação do Algoritmo e da Lógica
 
@@ -22,7 +22,7 @@ O projeto implementa o algoritmo de Karatsuba para multiplicação eficiente de 
     a, b = divmod(multiplicando, 10 ** m)
     c, d = divmod(mutiplicador, 10 ** m)
     ```
-    Os números são divididos em duas partes: [a](http://_vscodecontentref_/22) e [b](http://_vscodecontentref_/23) para o primeiro número, [c](http://_vscodecontentref_/24) e [d](http://_vscodecontentref_/25) para o segundo número.
+    Os números são divididos em duas partes: a e b para o primeiro número, c e d para o segundo número.
 
 3. **Recursão para Calcular os Produtos**:
     ```python
@@ -30,7 +30,7 @@ O projeto implementa o algoritmo de Karatsuba para multiplicação eficiente de 
     bd = karatsuba_algorithm(b, d)
     ad_bc = karatsuba_algorithm(a + b, c + d) - ac - bd
     ```
-    São calculados os produtos [ac](http://_vscodecontentref_/26), [bd](http://_vscodecontentref_/27) e [ad_bc](http://_vscodecontentref_/28) usando chamadas recursivas.
+    São calculados os produtos ac, bd e ad_bc usando chamadas recursivas.
 
 4. **Combinação dos Resultados**:
     ```python
