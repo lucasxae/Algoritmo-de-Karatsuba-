@@ -77,39 +77,38 @@ A complexidade ciclomática é uma métrica que mede a quantidade de caminhos li
 
 ### Fluxo de Controle da Função
 
-![](<Screenshot_20250224_163132_Samsung Notes.jpg>)
 #### Grafo de Fluxo
 
 - **Nós**:
   1. Início da função
-  2. Verificação do caso base
-  3. Retorno do caso base
-  4. Divisão dos números
-  5. Recursão para ac
-  6. Recursão para bd
-  7. Recursão para ad_bc
-  8. Combinação dos resultados
-  9. Retorno do resultado final
+  2. Verificação do if
+  3. Retorno do caso base caso for True
+  4. Atribuição do tamanho dos números
+  5. Divisão dos números multiplicados
+  6. Divisão do multiplicador
+  7. Divisão do multiplicando
+  8. Recursão para ac
+  9. Recursão para bd
+  10. Recursão para ad_bc
+  11. Retorno do resultado final
 
 - **Arestas**:
   1. Início -> Verificação do caso base
   2. Verificação do caso base -> Retorno do caso base (verdadeiro)
-  3. Verificação do caso base -> Divisão dos números (falso)
-  4. Divisão dos números -> Recursão para ac
-  5. Recursão para ac -> Recursão para bd
-  6. Recursão para bd -> Recursão para ad_bc
-  7. Recursão para ad_bc -> Combinação dos resultados
-  8. Combinação dos resultados -> Retorno do resultado final
+  3. Verificação do caso base -> Atribuição do tamanho dos números (falso)
+  4. Atribuição do tamanho dos números -> Divisão dos números
+  5. Divisão dos números -> Divisão do multiplicador
+  6. Divisão do multiplicador -> Divisão do multiplicando
+  7. Divisão do multiplicando ->   Recursão para ac
+  8. Recursão para ac -> Recursão para bd
+  9. Recursão para bd -> Recursão para ad_bc
+  10. Recursão para ad_bc -> Retorno da Função
 
+##
+
+![alt text](<Diagrama sem nome.drawio.png>)
 #### Cálculo da Complexidade Ciclomática
-
-Usando a fórmula \( M = E - N + 2P \):
-
-- \( E \) (Número de arestas): 8
-- \( N \) (Número de nós): 9
-- \( P \) (Número de componentes conexos): 1
-
-\[ M = 8 - 9 + 2 \times 1 = 1 \]
+![alt text](image-1.png)
 
 A complexidade ciclomática da função  é 1.
 
@@ -118,7 +117,7 @@ A complexidade ciclomática da função  é 1.
 #### Complexidade Temporal
 
 - **Melhor Caso**: O melhor caso ocorre quando um dos números é menor que 10. Neste caso, a complexidade é \( O(1) \).
-- **Caso Médio e Pior Caso**: No caso médio e pior caso, a complexidade temporal do algoritmo de Karatsuba é \( O(n^{\log_2 3}) \approx O(n^{1.585}) \), onde \( n \) é o número de dígitos dos números a serem multiplicados.
+- **Caso Médio e Pior Caso**: No caso médio e pior caso, a complexidade temporal do algoritmo de Karatsuba é \( O(n^ log 3), onde \( n \) é o número de dígitos dos números a serem multiplicados.
 
 #### Complexidade Espacial
 
